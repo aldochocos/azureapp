@@ -1,0 +1,11 @@
+<div *ngIf="user">
+
+    <label>Information: </label>
+    <input [(ngModel)]="user.name">
+    <input [(ngModel)]="user.username">
+    <input [(ngModel)]="user.email">
+    <input [(ngModel)]="user.phone">
+
+</div>
+
+<button (click)="goBack()">Go back!</button>

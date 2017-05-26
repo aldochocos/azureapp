@@ -1,0 +1,8 @@
+
+//luego de realizar los cambios y hacer los commits ejecutar:
+
+//1.
+ng build --prod --base-href "/azureapp/"
+
+//2.
+angular-cli-ghpages

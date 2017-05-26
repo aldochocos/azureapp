@@ -1,0 +1,14 @@
+
+<label>Users list:</label>
+ <ul class="users">
+    <li *ngFor="let user of users" (click)="onSelect(user)" [class.selected]="user === selectedHero">
+      <span class="badge">{{user.id}}</span> -
+      <span>{{user.name}} </span> -
+      <span>{{user.username}} </span>    
+
+      <span>{{user.email}} </span> -
+      <span>{{user.phone}} </span> -
+      <span>{{user.website}} </span>    
+      <button (click)="editar(user)">go to edit</button> 
+    </li>
+  </ul> 
