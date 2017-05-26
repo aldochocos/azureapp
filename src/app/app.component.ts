@@ -13,9 +13,9 @@ import 'rxjs/add/operator/toPromise';
 })
 export class AppComponent implements OnInit {
 
-  private url = "https://requestb.in/10lpslj1";
+  url = "https://requestb.in/10lpslj1";
   title = 'app works!';
-  private info : string = "empty";
+  info : string = "empty";
 
   constructor(private http: Http) {
                                                       
