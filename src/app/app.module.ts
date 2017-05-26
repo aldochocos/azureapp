@@ -5,6 +5,8 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 
+import { FakeService } from  './fake.service';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -12,9 +14,9 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule    
   ],
-  providers: [],
+  providers: [ FakeService ] ,
   bootstrap: [AppComponent]
 })
 export class AppModule { }

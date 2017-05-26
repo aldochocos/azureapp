@@ -7,3 +7,29 @@
 
 <p> {{info}}</p>
 
+<label>Lista de usuarios</label>
+ <ul>
+    <li *ngFor="let user of users">
+      <span class="badge">{{user.id}}</span> -
+      <span>{{user.name}} </span> -
+      <span>{{user.username}} </span>    
+
+      <span>{{user.email}} </span> -
+      <span>{{user.phone}} </span> -
+      <span>{{user.website}} </span>    
+    </li>
+  </ul> 
+
+  <hr/>
+
+<label>Lista de comments</label>
+ <ul>
+    <li *ngFor="let comment of comments">
+      <span class="badge">{{comment.postId}}</span> -
+      <span>{{comment.name}} </span> -
+      <span>{{comment.id}} </span> -
+      <span>{{comment.email}} </span> -
+      <span>{{comment.body}} </span>      
+    </li>
+  </ul> 
+
