@@ -13,7 +13,7 @@ import 'rxjs/add/operator/toPromise';
 })
 export class AppComponent implements OnInit {
 
-  url = "https://requestb.in/10lpslj1";
+  url = "https://requestb.in/166sz7c1";
   title = 'app works!';
   info : string = "empty";
 
