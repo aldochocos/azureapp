@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { FakeService } from './fake.service';
 import { User } from './user';
 import { Comment } from './comment';
+import { Router } from '@angular/router';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -11,23 +12,28 @@ import 'rxjs/add/operator/toPromise';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.component.html'  
 })
 export class AppComponent implements OnInit {
+  
+  title = 'Master - details: users';
+  users : User[];  
+  selectedUser: User;
 
-  url = "https://requestb.in/166sz7c1";
-  title = 'app works!';
-  info : string = "empty";
-  users : User[];
-  comments: Comment[];
-
-  constructor(private http: Http, private fakeService: FakeService) {
+  constructor(private http: Http, private fakeService: FakeService, private router: Router) {
                                                       
   }
 
   ngOnInit(): void {
-      this.fakeService.getUsers().then(x => this.users = x);
-      this.fakeService.getComments().then(x => this.comments = x);
-    }
+      this.users = this.fakeService.getUsersSync();      
+  }
+
+  onSelect(user: User) : void {
+    this.selectedUser = user;
+  }
+
+  editar (user : User) : void 
+  {    
+    this.router.navigate(['/detail', user.id]);
+  } 
 }
