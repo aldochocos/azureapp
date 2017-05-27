@@ -16,7 +16,7 @@ import 'rxjs/add/operator/toPromise';
 })
 export class AppComponent implements OnInit {
   
-  title = 'Master - details: users';
+  title = 'Master - details: users MODIFIED';
   users : User[];  
   selectedUser: User;
 
