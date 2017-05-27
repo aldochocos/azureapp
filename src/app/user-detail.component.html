@@ -9,3 +9,20 @@
 </div>
 
 <button (click)="goBack()">Go back!</button>
+
+<br />
+
+<div class="alert alert-success" role="alert">
+  <strong>Well done!</strong> You successfully read this important alert message.
+</div>
+
+<ngb-accordion>
+    <ngb-panel *ngFor="let item of users">
+        <ng-template ngbPanelTitle>
+          Título: {{ item.name}}     
+        </ng-template>
+        <ng-template ngbPanelContent>
+            {{ item | json}}
+        </ng-template>    
+    </ngb-panel>    
+</ngb-accordion>

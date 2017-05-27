@@ -8,23 +8,29 @@ import 'rxjs/add/operator/switchMap';
 
 @Component({
     selector: 'user-detail',
-    templateUrl : './user-detail.component.html'
+    templateUrl : './user-detail.component.html',
 })
 export class UserDetailComponent implements OnInit {
 
+    users : User[];
     user : User;
 
     constructor (
        private fakeService: FakeService,
        private route : ActivatedRoute,
        private location: Location
+       
    ) {}
 
     ngOnInit(): void {
-                
+
+        this.users = this.fakeService.getUsersSync();  
+        
         this.route.params
             .switchMap((params: Params) => this.fakeService.getUser(+params['id']))
-            .subscribe(user => this.user = user);                    
+            .subscribe(user => this.user = user); 
+
+     
     }
 
     goBack() : void {

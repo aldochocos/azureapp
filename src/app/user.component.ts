@@ -26,8 +26,13 @@ export class UserComponent implements OnInit {
       this.users = this.fakeService.getUsersSync();      
   }
   
-  editar (user : User) : void 
+  edit (user : User) : void 
   {    
     this.router.navigate(['/detail', user.id]);
   } 
+
+  details (user : User): void
+  {
+    
+  }
 }

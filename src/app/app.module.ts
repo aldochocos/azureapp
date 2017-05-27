@@ -11,6 +11,7 @@ import { UserDetailComponent } from './user-detail.component';
 
 import { FakeService } from  './fake.service';
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FakeService } from  './fake.service';
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule         
+    AppRoutingModule,
+    NgbModule.forRoot()         
   ],
   providers: [ FakeService ] ,
   bootstrap: [AppComponent]
