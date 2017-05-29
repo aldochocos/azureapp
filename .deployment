@@ -1,2 +1,2 @@
 [config]
-project = dist
+command = bash deploy.sh  
