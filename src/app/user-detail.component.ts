@@ -40,8 +40,8 @@ export class UserDetailComponent implements OnInit {
         this.http.get(this.url, { headers : this.headers })
                .toPromise()
                .then(function (response) {
-                   console.log(response);
-                    //this.cadena = response
+                   
+                   this.cadena = response;
                });
     }
 
