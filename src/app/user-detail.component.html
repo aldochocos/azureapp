@@ -10,15 +10,30 @@
 
 <button (click)="goBack()">Go back!</button>
 
-<br />
-
-{{ anios }}
 <hr>
+Lista de años:
+<ul class="users">
+    <li *ngFor="let anio_ of anios">
+      <span class="badge">{{ anio_.Anio }}</span> -
+      <span>{{ anio_.Actual }} </span> -      
+    </li>
+  </ul> 
+
+<hr>
+Lista de post:
+<ul class="users">
+    <li *ngFor="let post_ of posts">
+      <span class="badge">{{ post_.userId }}</span> -
+      <span>{{ post_.title }} </span> -      
+    </li>
+  </ul> 
+
+<!--<hr>
 <div class="alert alert-success" role="alert">
   <strong>Well done!</strong> You successfully read this important alert message.
-</div>
+</div>-->
 
-<ngb-accordion>
+<!--<ngb-accordion>
     <ngb-panel *ngFor="let item of users">
         <ng-template ngbPanelTitle>
           Título: {{ item.name}}     
@@ -27,4 +42,4 @@
             {{ item | json}}
         </ng-template>    
     </ngb-panel>    
-</ngb-accordion>
+</ngb-accordion>-->
