@@ -36,7 +36,10 @@ export class UserDetailComponent implements OnInit {
 
     ngOnInit(): void {
 
-        this.users = this.fakeService.getUsersSync();  
+        this.fakeService.getPosts().then(lista => this.posts = lista);         
+        this.fakeService.getAnios().then(lista => this.anios = lista);      
+        //this.users =
+        //this.fakeService.getUsers().then(r => this.users = r); //.getUsersSync();  
         
         this.route.params
             .switchMap((params: Params) => this.fakeService.getUser(+params['id']))
@@ -46,9 +49,9 @@ export class UserDetailComponent implements OnInit {
         //console.log('esta es la url configurada: ' + this.url);
         //  let infor = this.getAnios();
         //  console.log(infor);
-         this.getAnios().then(lista => this.anios = lista);                    
+        // this.getAnios().then(lista => this.anios = lista);                    
         //this.getCadenas().then(info => this.cadena = info);  
-        this.getPosts().then(lista => this.posts = lista);             
+           
     }
 
     goBack() : void {
@@ -62,20 +65,9 @@ export class UserDetailComponent implements OnInit {
                .catch(this.handleError);
     }
 
-    getAnios() : Promise<Anio[]> {
-        return this.http.get(this.url, { headers : this.headers })
-               .toPromise()
-               .then(response => response.json().data as Anio[])               
-               .catch(this.handleError);
-    }
+    
 
-    getPosts() : Promise<Post[]> {
-        return this.http.get(this.urlPosts, { headers : this.headers })
-               .toPromise()
-               .then(response => response.json().data as Post[])               
-               .catch(this.handleError);
-    }
-
+    
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error); // for demo purposes only
         return Promise.reject(error.message || error);

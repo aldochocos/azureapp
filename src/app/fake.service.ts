@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { User } from './user';
+import { Post } from './models/post';
 import { USERS } from './mock-users';
 import { Comment } from './comment';
 import { Headers, Http } from '@angular/http';
+import { Anio } from './models/anio';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -10,6 +12,8 @@ import 'rxjs/add/operator/toPromise';
 export class FakeService {
     urlUsers = 'https://jsonplaceholder.typicode.com/users';
     urlComments = 'https://jsonplaceholder.typicode.com/comments';
+    urlPosts = 'https://jsonplaceholder.typicode.com/posts';
+    urlAnios : string = 'http://rosymarti.azurewebsites.net/api/information/obteneranios';
     headers = new Headers({'Content-Type': 'application/json'});
     users : User[];
     userFound : User;
@@ -34,6 +38,14 @@ export class FakeService {
 
         // return info;
     }
+   
+    getComments(): Promise<Comment[]> {
+        return this.http.get(this.urlComments)
+               .toPromise()
+               .then(a => a.json() as Comment[]);
+               
+    }
+
     getUsers(): Promise<User[]> {
         return this.http.get(this.urlUsers)
                .toPromise()
@@ -42,12 +54,20 @@ export class FakeService {
                
     }
 
-    getComments(): Promise<Comment[]> {
-        return this.http.get(this.urlComments)
+    getAnios(): Promise<Anio[]> {
+        return this.http.get(this.urlAnios)
                .toPromise()
-               .then(a => a.json() as Comment[]);
-               
+               .then(response => response.json() as Anio[])               
+               .catch(this.handleError);
     }
+
+    getPosts(): Promise<Post[]> {
+        return this.http.get(this.urlPosts)
+               .toPromise()
+               .then(a => a.json() as Post[])               
+               .catch(this.handleError);
+    }
+
 
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error); // for demo purposes only

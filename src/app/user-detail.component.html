@@ -14,8 +14,8 @@
 Lista de años:
 <ul class="users">
     <li *ngFor="let anio_ of anios">
-      <span class="badge">{{ anio_.Anio }}</span> -
-      <span>{{ anio_.Actual }} </span> -      
+      <span>{{ anio_.Anio }}</span> -
+      <span>{{ anio_.Actual }} </span>     
     </li>
   </ul> 
 
@@ -33,7 +33,7 @@ Lista de post:
   <strong>Well done!</strong> You successfully read this important alert message.
 </div>-->
 
-<!--<ngb-accordion>
+<ngb-accordion>
     <ngb-panel *ngFor="let item of users">
         <ng-template ngbPanelTitle>
           Título: {{ item.name}}     
@@ -42,4 +42,4 @@ Lista de post:
             {{ item | json}}
         </ng-template>    
     </ngb-panel>    
-</ngb-accordion>-->
+</ngb-accordion>
