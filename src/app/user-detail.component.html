@@ -11,7 +11,7 @@
 <button (click)="goBack()">Go back!</button>
 
 <hr>
-Lista de años:
+<!--Lista de años:
 <ul class="users">
     <li *ngFor="let anio_ of anios">
       <span>{{ anio_.Anio }}</span> -
@@ -26,20 +26,27 @@ Lista de post:
       <span class="badge">{{ post_.userId }}</span> -
       <span>{{ post_.title }} </span> -      
     </li>
-  </ul> 
+  </ul> -->
 
-<!--<hr>
-<div class="alert alert-success" role="alert">
-  <strong>Well done!</strong> You successfully read this important alert message.
-</div>-->
+<<hr>
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Modal title</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>One fine body&hellip;</p>
+    <span>Este es un spam</span>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+  </div>
+</ng-template>
 
-<ngb-accordion>
-    <ngb-panel *ngFor="let item of users">
-        <ng-template ngbPanelTitle>
-          Título: {{ item.name}}     
-        </ng-template>
-        <ng-template ngbPanelContent>
-            {{ item | json}}
-        </ng-template>    
-    </ngb-panel>    
-</ngb-accordion>
+<button class="btn btn-sx btn-outline-primary" (click)="open(content)">Launch demo modal</button>
+
+<hr>
+
+<pre>{{closeResult}}</pre>

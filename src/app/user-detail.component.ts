@@ -6,6 +6,8 @@ import { FakeService } from './fake.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { Headers, Http } from '@angular/http';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/toPromise';
@@ -24,13 +26,14 @@ export class UserDetailComponent implements OnInit {
     public urlPosts = 'https://jsonplaceholder.typicode.com/posts';
     public cadena : string = "loading..";
     private headers = new Headers({'Content-Type': 'application/json'});
-
+    closeResult: string;
 
     constructor (
        private fakeService: FakeService,
        private route : ActivatedRoute,
        private location: Location,
-       private http : Http
+       private http : Http,
+       private modalService : NgbModal
        
    ) {}
 
@@ -65,7 +68,23 @@ export class UserDetailComponent implements OnInit {
                .catch(this.handleError);
     }
 
-    
+    open(content) {
+    this.modalService.open(content).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+    private getDismissReason(reason: any): string {
+        if (reason === ModalDismissReasons.ESC) {
+        return 'by pressing ESC';
+        } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+        return 'by clicking on a backdrop';
+        } else {
+        return  `with: ${reason}`;
+        }
+    }
 
     
     private handleError(error: any): Promise<any> {

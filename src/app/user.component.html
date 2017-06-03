@@ -1,5 +1,32 @@
 
-<label>Users list:</label>
+
+<div class="container-fluid">
+  <div class="row" *ngFor="let user of users">
+    <div class="col" style="background-color:#957BBE">{{user.id}}</div>
+    <div class="col" style="background-color:#DAEEFF">{{user.username}}</div>
+    <div class="col" style="background-color:#FAE3C4">{{user.email}}</div>
+    <div class="col" style="background-color:#87CB16">{{user.phone}}</div>
+    <div class="col" style="background-color:#FB404B">{{user.website}}</div>
+    <div class="col" style="background-color:white"> 
+      <button type="button" style="cursor:pointer;" class="btn btn-outline-success btn-sm" (click)="edit(user)">go to edit</button> 
+      </div>
+  </div>
+</div>
+
+<table class="table">
+  <!--<tr>
+    <td></td>
+    <td></td>
+  </tr>-->
+  <tr *ngFor="let user of users">
+    <td style="background-color:#957BBE">{{user.id}}</td>
+    <td style="background-color:#DAEEFF">{{user.username}}</td>
+    <td style="background-color:#FAE3C4">{{user.email}}</td>
+    <td style="background-color:#87CB16">{{user.phone}}</td>
+    <td style="background-color:#FB404B">{{user.website}}</td>
+  </tr>
+</table>
+<!--
  <ul class="users">
     <li *ngFor="let user of users" (click)="onSelect(user)" [class.selected]="user === selectedHero">
       <span class="badge">{{user.id}}</span> -
@@ -12,6 +39,6 @@
       <button (click)="details(user)">details</button> 
       <button (click)="edit(user)">go to edit</button> 
     </li>
-  </ul> 
+  </ul> -->
 
 

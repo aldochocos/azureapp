@@ -16,7 +16,7 @@ import 'rxjs/add/operator/toPromise';
 })
 export class AppComponent implements OnInit {
   
-  title = 'this a title from angular to azure';
+  title = 'Users list';
   users : User[];  
   selectedUser: User;
 
