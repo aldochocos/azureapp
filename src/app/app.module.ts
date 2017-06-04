@@ -8,14 +8,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserComponent } from './user.component';
 import { UserDetailComponent } from './user-detail.component';
+import { PaymentComponent } from './payment.component';
 
 import { FakeService } from  './fake.service';
+import { PaymentService } from './services/payment.service';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
-    AppComponent, UserComponent, UserDetailComponent
+    AppComponent, UserComponent, UserDetailComponent, PaymentComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +26,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     NgbModule.forRoot()         
   ],
-  providers: [ FakeService ] ,
+  providers: [ FakeService, PaymentService ] ,
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -3,12 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { UserComponent } from './user.component';
 import { UserDetailComponent } from './user-detail.component';
-
+import { PaymentComponent } from './payment.component';
 
 const routes: Routes = [    
     { path: 'detail/:id', component: UserDetailComponent },
     { path: 'users', component: UserComponent },
-    { path: '', redirectTo: '/users', pathMatch: 'full'}
+    { path: 'payments', component: PaymentComponent },
+    { path: '', redirectTo: '/payments', pathMatch: 'full'}
 ]
 
 @NgModule({

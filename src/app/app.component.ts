@@ -16,7 +16,7 @@ import 'rxjs/add/operator/toPromise';
 })
 export class AppComponent implements OnInit {
   
-  title = 'Users list';
+  title = 'Payments';
   users : User[];  
   selectedUser: User;
 
@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-      this.users = this.fakeService.getUsersSync();      
+      //this.users = this.fakeService.getUsersSync();      
   }
 
   onSelect(user: User) : void {
