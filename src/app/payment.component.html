@@ -1,22 +1,40 @@
-<div class="container">
-<div class="row" *ngFor="let payment of payments">
-    <div class="col">
-        {{ payment.FechaPago }}
-    </div>    
-    <div class="col">
-        {{ payment.Anio }}
+<!--<div class="container-fluid">
+    <div class="row" *ngFor="let payment of payments">
+        <div class="col">
+            {{ payment.FechaPago }}
+        </div>    
+        <div class="col">
+            {{ payment.Anio }}
+        </div>
+        <div class="col">
+            {{ payment.Mes }}
+        </div>
+        <div class="col">
+            {{ payment.Alumno }}
+        </div>
+        <div class="col">
+            {{ payment.Monto }}
+        </div>
+        <div class="col">
+            {{ payment.Observacion }}
+        </div>
     </div>
-    <div class="col">
-        {{ payment.Mes }}
-    </div>
-    <div class="col">
-        {{ payment.Alumno }}
-    </div>
-    <div class="col">
-        {{ payment.Monto }}
-    </div>
-    <div class="col">
-        {{ payment.Observacion }}
-    </div>
-</div>
-</div>
+</div>-->
+<table class="table table-striped table-hover table-condensed table-bordered">
+    <thead>
+        <th>Fecha pago</th>
+        <th>Alumno</th>
+        <th>Mes</th>
+        <th>Monto</th>
+        <th>Obs</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let payment of payments">
+            <td>{{ payment.FechaPago | date}}</td>
+            <td>{{ payment.Alumno}}</td>
+            <td>{{payment.Mes}}</td>
+            <td>{{payment.Monto}}</td>
+            <td>{{payment.Observacion}}</td>
+        </tr>
+    </tbody>
+</table>
